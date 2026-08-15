@@ -29,3 +29,65 @@ fviz_pca_var(pca.PEG, col.var  = "Steelblue")
 fviz_pca_biplot(pca.PEG, geom = "point",
                 habillage=tarwi2$PEG, addEllipses=TRUE,
                 ellipse.level= 0.80, col.var = "Peru") + theme_minimal()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+library(GGally)
+
+ggpairs(peg, columns = 6:9, ggplot2::aes(colour=PEG)) 
+
+peg$PEG<-as.factor(peg$PEG)
+
+mm <- peg[,6:9]
+
+library(FactoMineR)
+library(factoextra)
+library(ggplot2)
+
+
+acp<-prcomp(mm, center=TRUE, scale=TRUE)
+plot(acp, type="l")
+summary(acp)
+
+res.pca = PCA(mm, scale.unit=TRUE, ncp=6, graph=F)
+
+fviz_pca_var(res.pca, col.var = "steelblue")
+
+fviz_pca_ind(res.pca, label="none", habillage=peg$PEG)
+
+fviz_pca_ind(res.pca, label="none", habillage=peg$PEG,
+             palette = c("#00AFBB", "#E7B800", "#FC4E07","#999999"),
+             addEllipses=TRUE, ellipse.level=0.95)
+
+fviz_pca_biplot(res.pca, label = "var", habillage=peg$PEG,
+                addEllipses=TRUE, ellipse.level=0.95,
+                ggtheme = theme_minimal())
+
+fviz_pca_var(res.pca, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"))
+
+fviz_pca_biplot(res.pca, 
+                # Individuals
+                geom.ind = "point",
+                fill.ind = peg$PEG, col.ind = "black",
+                pointshape = 21, pointsize = 2,
+                palette = "jco")
+
+
+
+
