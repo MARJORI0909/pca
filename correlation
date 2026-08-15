@@ -1,0 +1,19 @@
+## Correlaci?n M?ltiple
+
+### Librer?as
+
+library(corrplot)
+
+### Base de datos ajustada
+
+tarwi2.cor <- tarwi2[,5:10]
+
+par(mfrow=c(1,1))
+
+i <- cor(tarwi2.cor, method = "pearson")
+
+corrplot(i, method = "color",order = "AOE", type = "upper", tl.pos = "d")
+corrplot(i, add = TRUE, type = "lower", method = "number", order = "AOE",
+         diag = FALSE, tl.pos = "n", cl.pos = "n")
+
+}
