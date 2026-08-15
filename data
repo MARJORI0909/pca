@@ -1,0 +1,23 @@
+# Introducci?n de Base de Datos
+
+tarwi2 <- read.delim("clipboard") # Factor: PEG
+
+summary(tarwi2)
+
+tarwi2$T2 <- factor(tarwi2$T2, levels = c("1h","2h","3h","4h","5h","6h","7h","8h","9h",
+                                          "10h","11h","12h","13h","14h","15h","16h","17h",
+                                          "18h","19h","20h","21h","22h","23h","24h"))
+
+tarwi2.p1 <- select(filter(tarwi2, PEG == "PEG1"),c(T2, rep, PF2,PT2,pH2,CE2,CRA2,IMB2))
+
+tarwi2.p2 <- select(filter(tarwi2, PEG == "PEG2"),c(T2, rep, PF2,PT2,pH2,CE2,CRA2,IMB2))
+
+tarwi2.p3 <- select(filter(tarwi2, PEG == "PEG3"),c(T2, rep, PF2,PT2,pH2,CE2,CRA2,IMB2))
+
+summary(tarwi2.p1)
+
+summary(tarwi2.p2)
+
+summary(tarwi2.p3)
+
+attach(tarwi2)
