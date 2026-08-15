@@ -1,0 +1,27 @@
+# An?lisis inicial: Inferencial
+
+## Variables recolectadas
+
+### Peso Turgente
+
+{par(mfrow=c(1,3))
+  
+  boxplot(data=tarwi2.p1,tarwi2.p1$PT2~T2, main = "PEG 1", ylab = "Peso Turgente",xlab="Horas imbibicion",col=c("yellow"))
+  
+  boxplot(data=tarwi2.p2,tarwi2.p2$PT2~T2, main = "PEG 2",ylab = "Peso Turgente",xlab="Horas imbibicion",col=c("green"))
+  
+  boxplot(data=tarwi2.p3,tarwi2.p3$PT2~T2, main = "PEG 3",ylab = "Peso Turgente",xlab="Horas imbibicion",col=c("red"))
+  
+  mtext("Boxplot del Peso Turgente seg?n PEG y Tiempo de Imbibici?n",
+        side = 3, line = -1.2, outer = TRUE, font = 2 )
+}
+
+pt2_m <- aov(PT2~ PEG + T2 + T2*PEG)
+
+shapiro.test(residuals(pt2_m)) # No se valid? normalidad
+
+leveneTest(PT2 ~ interaction(T2,PEG)) # Se valid? homogeneidad por prueba no param?trica
+
+cv.model(pt2_m) # Se valid? coeficiente para Lab -> Se valid? el modelo
+
+summary(pt2_m) # Diferencias significativas en cada uno de los factores, se procede al an?lisis de efectos simples-simples
