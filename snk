@@ -1,0 +1,44 @@
+#Prueba recomendada: SNK
+
+pp2 <- SNK.test(pt2_m, c("PEG","T2"), console= T, alpha = 0.1) 
+
+{layout(matrix(c(1:12),ncol = 4, byrow=T))
+  
+  bar.group(pp2$groups[1:6,], horiz = F, ylim=c(0,80), cex.names=0.804) 
+  abline(h=0)
+  
+  bar.group(pp2$groups[7:12,], horiz = F, ylim=c(0,80), cex.names=0.804)
+  abline(h=0)
+  
+  bar.group(pp2$groups[13:18,], horiz = F, ylim=c(0,80), cex.names=0.804)
+  abline(h=0)
+  
+  bar.group(pp2$groups[19:24,], horiz = F, ylim=c(0,80), cex.names=0.804)
+  abline(h=0)
+  
+  bar.group(pp2$groups[25:30,], horiz = F, ylim=c(0,80), cex.names=0.804)
+  abline(h=0)
+  
+  bar.group(pp2$groups[31:36,], horiz = F, ylim=c(0,80),cex.names=0.804)
+  abline(h=0)
+  
+  bar.group(pp2$groups[37:42,], horiz = F, ylim=c(0,80), cex.names=0.804)
+  abline(h=0)
+  
+  bar.group(pp2$groups[43:48,], horiz = F, ylim=c(0,80), cex.names=0.804)
+  abline(h=0)
+  
+  bar.group(pp2$groups[49:54,], horiz = F, ylim=c(0,80), cex.names=0.804) 
+  abline(h=0)
+  
+  bar.group(pp2$groups[55:60,], horiz = F, ylim=c(0,80), cex.names=0.804) 
+  abline(h=0)
+  
+  bar.group(pp2$groups[61:66,], horiz = F, ylim=c(0,80), cex.names=0.804) 
+  abline(h=0)
+  
+  bar.group(pp2$groups[67:72,], horiz = F, ylim=c(0,80), cex.names=0.804) 
+  abline(h=0)
+  
+  mtext("Barras de error de Peso Turgente para la interacci?n entre PEG y Tiempo de Imbibici?n agrupadas seg?n SNK",
+        side = 3, line = -3, outer = TRUE, font = 2) }
