@@ -1,0 +1,7 @@
+# Paquetes 
+
+{library(agricolae)
+
+library(car)
+
+library(dplyr)
