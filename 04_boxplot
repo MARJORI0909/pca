@@ -1,8 +1,8 @@
-# An?lisis inicial: Inferencial
+#Initial analysis: Inferential
 
-## Variables recolectadas
+## All the variables
 
-### fresh weight
+###Fresh weight
 
 {par(mfrow=c(1,3))
   
