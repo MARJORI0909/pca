@@ -1,5 +1,5 @@
 
-library(agricolae)
+
 data.peg=read.delim("clipboard")
 attach(data.peg)
 str(data.peg)
