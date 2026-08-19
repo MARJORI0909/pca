@@ -1,6 +1,5 @@
-# Introducci?n de Base de Datos
-
-tarwi2 <- read.delim("clipboard") # Factor: PEG
+#Data introduction
+tarwi2 <- read.delim("clipboard") #Factor: PEG
 
 summary(tarwi2)
 
