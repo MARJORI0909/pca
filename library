@@ -1,7 +1,11 @@
-#packages
+#library
 
 library(agricolae)
 
 library(car)
 
 library(dplyr)
+
+library(FactoMineR)
+
+library(factoextra)
