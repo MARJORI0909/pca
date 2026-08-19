@@ -1,14 +1,13 @@
 
+tarwi2=read.delim("clipboard")
+attach(tarwi2)
+str(tarwi2)
+summary(tarwi2)
 
-data.peg=read.delim("clipboard")
-attach(data.peg)
-str(data.peg)
-summary(data.peg)
-
-PEG0=data.peg[1:72,]
-PEG1=data.peg[73:144,]
-PEG2=data.peg[145:216,]
-PEG3=data.peg[217:288,]
+PEG0=tarwi2[1:72,]
+PEG1=tarwi2[73:144,]
+PEG2=tarwi2[145:216,]
+PEG3=tarwi2[217:288,]
 
 mode1=aov(data =PEG0,IMB~Hours_imbibition )  #IMB: Imbibition rate 
 shapiro.test(residuals(mode1))  #normality
