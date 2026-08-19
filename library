@@ -1,6 +1,6 @@
-# Paquetes 
+#packages
 
-{library(agricolae)
+library(agricolae)
 
 library(car)
 
