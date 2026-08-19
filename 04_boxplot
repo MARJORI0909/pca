@@ -10,24 +10,28 @@ library(ggplot2)
 
 # grouped boxplot (all the variables)
 
-ggplot(tarwi2, aes(x=Horas_imbibicion, y=Peso_final, fill=PEG)) + 
+ggplot(tarwi2, aes(x=T2, y=PF2, fill=PEG)) + 
   geom_boxplot() +   ggtitle("Peso turgente de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
   theme(plot.title = element_text(hjust = 0.5)) + xlab("Horas de imbibici?n") + ylab("Peso turgente (g)")
 
-ggplot(tarwi2, aes(x=Horas_imbibicion, y=pH, fill=PEG)) + 
+ggplot(tarwi2, aes(x=T2, y=PT2, fill=PEG)) + 
+  geom_boxplot() +   ggtitle("Peso turgente de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
+  theme(plot.title = element_text(hjust = 0.5)) + xlab("Horas de imbibici?n") + ylab("Peso turgente (g)")
+
+ggplot(tarwi2, aes(x=T2, y=pH2, fill=PEG)) + 
   geom_boxplot() +   ggtitle("pH de la soluci?n seg?n las horas de imbibici?n de 100 semillas de tarwi y concentraci?n de PEG") +
   theme(plot.title = element_text(hjust = 0.5)) + xlab("Horas de imbibici?n") + ylab("pH")
 
 
-ggplot(tarwi2, aes(x=Horas_imbibicion, y=CE, fill=PEG)) + 
+ggplot(tarwi2, aes(x=T2, y=CE2, fill=PEG)) + 
   geom_boxplot() +   ggtitle("CE de la soluci?n seg?n las horas de imbibici?n de 100 semillas de tarwi y concentraci?n de PEG") +
   theme(plot.title = element_text(hjust = 0.5))+ xlab("Horas de imbibici?n") + ylab("CE (mS/cm)")
 
-ggplot(tarwi2, aes(x=Horas_imbibicion, y=CRA, fill=PEG)) + 
+ggplot(tarwi2, aes(x=T2, y=CRA2, fill=PEG)) + 
   geom_boxplot() +   ggtitle("Contenido relativo de agua de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
   theme(plot.title = element_text(hjust = 0.5))+ xlab("Horas de imbibici?n") + ylab("CRA (%)")
 
-ggplot(tarwi2, aes(x=Horas_imbibicion, y=IMB, fill=PEG)) + 
+ggplot(tarwi2, aes(x=T2, y=IMB2, fill=PEG)) + 
   geom_boxplot() +   ggtitle("Tasa de imbibici?n de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
   theme(plot.title = element_text(hjust = 0.5))+ xlab("Horas de imbibici?n") + ylab("IMB (%)")
 
