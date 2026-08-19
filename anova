@@ -1,40 +1,39 @@
-PEG
-datos.temp=read.delim("clipboard")
-attach(datos.temp)
-str(datos.temp)
-summary(datos.temp)
 
-PEG0=datos.temp[1:72,]
-PEG1=datos.temp[73:144,]
-PEG2=datos.temp[145:216,]
-PEG3=datos.temp[217:288,]
+library(agricolae)
+data.peg=read.delim("clipboard")
+attach(data.peg)
+str(data.peg)
+summary(data.peg)
 
-mode1=aov(data =PEG0,IMB~Horas_imbibicion )
-shapiro.test(residuals(mode1))
-bartlett.test(data =PEG0,IMB~Horas_imbibicion)
+PEG0=data.peg[1:72,]
+PEG1=data.peg[73:144,]
+PEG2=data.peg[145:216,]
+PEG3=data.peg[217:288,]
+
+mode1=aov(data =PEG0,IMB~Hours_imbibition )  #IMB: Imbibition rate 
+shapiro.test(residuals(mode1))  #normality
+bartlett.test(data =PEG0,IMB~Hours_imbibition) #homogeneity of variances test
 summary(mode1)
 cv.model(mode1)
-A1=duncan.test(mode1,"Horas_imbibicion",console = TRUE)
+A1=duncan.test(mode1,"Hours_imbibition",console = TRUE) #Duncan's Multiple Range Test #significance of means
 
-mode2=aov(data =PEG1,IMB~Horas_imbibicion )
+mode2=aov(data =PEG1,IMB~Hours_imbibition )
 shapiro.test(residuals(mode2))
-bartlett.test(data =PEG1,IMB~Horas_imbibicion)
+bartlett.test(data =PEG1,IMB~Hours_imbibition)
 summary(mode2)
 cv.model(mode2)
-A1=duncan.test(mode2,"Horas_imbibicion",console = TRUE)
+A1=duncan.test(mode2,"Hours_imbibition",console = TRUE)
 
-
-mode3=aov(data =PEG2,IMB~Horas_imbibicion )
+mode3=aov(data =PEG2,IMB~Hours_imbibition)
 shapiro.test(residuals(mode3))
-bartlett.test(data =PEG2,IMB~Horas_imbibicion)
+bartlett.test(data =PEG2,IMB~Hours_imbibition)
 summary(mode3)
 cv.model(mode3)
-A1=duncan.test(mode3,"Horas_imbibicion",console = TRUE)
+A1=duncan.test(mode3,"Hours_imbibition",console = TRUE)
 
-
-mode4=aov(data =PEG3,IMB~Horas_imbibicion )
-shapiro.test(residuals(mode4))
-bartlett.test(data =PEG3,IMB~Horas_imbibicion)
+mode4=aov(data =PEG3,IMB~Hours_imbibition)
+shapiro.test(residuals(mode4)) 
+bartlett.test(data =PEG3,IMB~Hours_imbibition)
 summary(mode4)
 cv.model(mode4)
-A1=duncan.test(mode4,"Horas_imbibicion",console = TRUE)
+A1=duncan.test(mode4,"Hours_imbibition",console = TRUE)
