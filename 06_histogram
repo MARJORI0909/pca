@@ -1,0 +1,14 @@
+#Histogram of turgid and fresh weight (for mirror visualization )
+
+library(ggplot2)
+
+library(hrbrthemes)
+
+p <- ggplot(tarwi2, aes(x=x) ) +
+  geom_histogram( aes(x = pf2, y = ..density..), fill="#69b3a2" ) +
+  geom_label( aes(x=2.5, y=0.25, label="Fresh weight (g)"), color="#69b3a2") +
+  geom_histogram( aes(x = pt2, y = -..density..), fill= "#404080") +
+  geom_label( aes(x=4.5, y=-0.25, label="Turgid weight (g)"), color="#404080") +
+  theme_ipsum() +
+  xlab("Weight of 100 seeds (g) ")
+p
