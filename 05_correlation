@@ -1,0 +1,59 @@
+## multiple correlation
+
+### library
+library(corrplot)
+
+### Adjusted database
+tarwi2.cor <- tarwi2[,5:10] #chosen variables
+
+par(mfrow=c(1,1))
+
+i <- cor(tarwi2.cor, method = "pearson")
+
+corrplot(i, method = "color",order = "AOE", type = "upper", tl.pos = "d")
+corrplot(i, add = TRUE, type = "lower", method = "number", order = "AOE",
+         diag = FALSE, tl.pos = "n", cl.pos = "n")
+
+}
+
+
+#CORRELATIONS - variables combinations 
+ggplot(peg, aes(x=pH2, y=CE2, color=PEG)) + 
+  geom_point(size=6) +
+  theme_ipsum() + xlab("pH") + ylab("CE (mS/cm)")
+
+ggplot(peg, aes(x=PT2, y=CE2, color=PEG)) + 
+  geom_point(size=6) +
+  theme_ipsum() + xlab("Turgid weight ") + ylab("CE (mS/cm)")
+
+ggplot(peg, aes(x=PT2, y=pH2, color=PEG)) + 
+  geom_point(size=6) +
+  theme_ipsum() + xlab("Turgid weight (g)") + ylab("pH")
+
+ggplot(peg, aes(x=PT2, y=CRA2, color=PEG)) + 
+  geom_point(size=6) +
+  theme_ipsum()+ xlab("Turgid weight (g)") + ylab("CRA (%)")
+
+ggplot(peg, aes(x=PT2, y=IMB2, color=PEG)) + 
+  geom_point(size=6) +
+  theme_ipsum()+ xlab("Turgid weight (g)") + ylab("IMB(%)")
+
+ggplot(peg, aes(x=CRA2, y=pH2, color=PEG)) + 
+  geom_point(size=6) +
+  theme_ipsum()+ xlab("CRA (%)") + ylab("pH")
+
+ggplot(peg, aes(x=CRA2, y=CE2, color=PEG)) + 
+  geom_point(size=6) +
+  theme_ipsum()+ xlab("CRA(%)") + ylab("CE (mS/cm)")
+
+ggplot(peg, aes(x=IMB2, y=pH2, color=PEG)) + 
+  geom_point(size=6) +
+  theme_ipsum()+ xlab("IMB (%)") + ylab("pH")
+
+ggplot(peg, aes(x=IMB2, y=CE2, color=PEG)) + 
+  geom_point(size=6) +
+  theme_ipsum()+ xlab("IMB (%)") + ylab("CE (mS/cm)")
+
+ggplot(peg, aes(x=IMB2, y=CRA2, color=PEG)) + 
+  geom_point(size=6) +
+  theme_ipsum()+ xlab("IMB (%)") + ylab("CRA (%)")
