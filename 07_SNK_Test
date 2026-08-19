@@ -1,4 +1,4 @@
-#Prueba recomendada: SNK
+#Test: SNK
 
 pp2 <- SNK.test(pt2_m, c("PEG","T2"), console= T, alpha = 0.1) 
 
@@ -40,5 +40,5 @@ pp2 <- SNK.test(pt2_m, c("PEG","T2"), console= T, alpha = 0.1)
   bar.group(pp2$groups[67:72,], horiz = F, ylim=c(0,80), cex.names=0.804) 
   abline(h=0)
   
-  mtext("Barras de error de Peso Turgente para la interacci?n entre PEG y Tiempo de Imbibici?n agrupadas seg?n SNK",
+  mtext("Turgid Weight error bars for the interaction between PEG and Imbibition Time grouped according to SNK",
         side = 3, line = -3, outer = TRUE, font = 2) }
