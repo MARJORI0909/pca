@@ -8,34 +8,35 @@ str(tarwi2)
 
 library(ggplot2)
 
-# grouped boxplot (all the variables)
+# grouped boxplot 
 
 ggplot(tarwi2, aes(x=T2, y=PF2, fill=PEG)) + 
-  geom_boxplot() +   ggtitle("Peso turgente de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
-  theme(plot.title = element_text(hjust = 0.5)) + xlab("Horas de imbibici?n") + ylab("Peso turgente (g)")
+  geom_boxplot() +   ggtitle("Fresh weight of 100 tarwi seeds according to imbibition hours and PEG concentration") +
+  theme(plot.title = element_text(hjust = 0.5)) + xlab("Imbibition hours") + ylab("Fresh weight")
 
 ggplot(tarwi2, aes(x=T2, y=PT2, fill=PEG)) + 
-  geom_boxplot() +   ggtitle("Peso turgente de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
-  theme(plot.title = element_text(hjust = 0.5)) + xlab("Horas de imbibici?n") + ylab("Peso turgente (g)")
+  geom_boxplot() +   ggtitle("Turgid weight of 100 tarwi seeds according to imbibition hours and PEG concentration") +
+  theme(plot.title = element_text(hjust = 0.5)) + xlab("Imbibition hours") + ylab("Turgid weight (g)")
 
 ggplot(tarwi2, aes(x=T2, y=pH2, fill=PEG)) + 
-  geom_boxplot() +   ggtitle("pH de la soluci?n seg?n las horas de imbibici?n de 100 semillas de tarwi y concentraci?n de PEG") +
-  theme(plot.title = element_text(hjust = 0.5)) + xlab("Horas de imbibici?n") + ylab("pH")
+  geom_boxplot() +   ggtitle("pH of 100 tarwi seeds according to imbibition hours and PEG concentration") +
+  theme(plot.title = element_text(hjust = 0.5)) + xlab("Imbibition hours") + ylab("pH")
 
 
 ggplot(tarwi2, aes(x=T2, y=CE2, fill=PEG)) + 
-  geom_boxplot() +   ggtitle("CE de la soluci?n seg?n las horas de imbibici?n de 100 semillas de tarwi y concentraci?n de PEG") +
-  theme(plot.title = element_text(hjust = 0.5))+ xlab("Horas de imbibici?n") + ylab("CE (mS/cm)")
+  geom_boxplot() +   ggtitle("Electrical conductivity of 100 tarwi seeds according to imbibition hours and PEG concentration") +
+  theme(plot.title = element_text(hjust = 0.5))+ xlab("Imbibition hours") + ylab("CE (mS/cm)")
 
 ggplot(tarwi2, aes(x=T2, y=CRA2, fill=PEG)) + 
-  geom_boxplot() +   ggtitle("Contenido relativo de agua de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
-  theme(plot.title = element_text(hjust = 0.5))+ xlab("Horas de imbibici?n") + ylab("CRA (%)")
+  geom_boxplot() +   ggtitle("Relative Water Content (%) of 100 tarwi seeds according to imbibition hours and PEG concentration") +
+  theme(plot.title = element_text(hjust = 0.5))+ xlab("Imbibition hours") + ylab("CRA (%)")
 
 ggplot(tarwi2, aes(x=T2, y=IMB2, fill=PEG)) + 
-  geom_boxplot() +   ggtitle("Tasa de imbibici?n de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
-  theme(plot.title = element_text(hjust = 0.5))+ xlab("Horas de imbibici?n") + ylab("IMB (%)")
+  geom_boxplot() +   ggtitle("Imbibition rate(%) of 100 tarwi seeds according to imbibition hours and PEG concentration") +
+  theme(plot.title = element_text(hjust = 0.5))+ xlab("Imbibition hours") + ylab("IMB (%)")
 
-#Boxplot (cuadro por tratamiento  y variables x horas imbibicion)
+
+#Boxplot (Table by treatment and variables by hours of imbibition)
 
 library(agricolae)
 
@@ -43,85 +44,85 @@ library(car)
 
 library(dplyr)
 
-peg$Horas_imbibicion <- factor(peg$Horas_imbibicion, levels = c("h01","h02","h03","h04","h05","h06","h07","h08","h09",
+tarwi2$T2<- factor(tarwi2$T2, levels = c("h01","h02","h03","h04","h05","h06","h07","h08","h09",
                                                                 "h10","h11","h12","h13","h14","h15","h16","h17","h18",
                                                                 "h19","h20","h21","h22","h23","h24"))
-PEG0<- select(filter(peg, PEG == "PEG0"	),c(Horas_imbibicion, rep, Peso_inicial,Peso_final,pH,CE,CRA,IMB))
+PEG0<- select(filter(peg, PEG == "PEG0"	),c(T2, rep, PF2,PT2,pH2,CE2,CRA2,IMB2))
 
-PEG1<- select(filter(peg, PEG == "PEG1"	),c(Horas_imbibicion, rep, Peso_inicial,Peso_final,pH,CE,CRA,IMB))
+PEG1<- select(filter(peg, PEG == "PEG1"	),c(T2, rep, PF2,PT2,pH2,CE2,CRA2,IMB2))
 
-PEG2<- select(filter(peg, PEG == "PEG2"	),c(Horas_imbibicion, rep, Peso_inicial,Peso_final,pH,CE,CRA,IMB))
+PEG2<- select(filter(peg, PEG == "PEG2"	),c(T2, rep, PF2,PT2,pH2,CE2,CRA2,IMB2))
 
-PEG3<- select(filter(peg, PEG == "PEG3"	),c(Horas_imbibicion, rep, Peso_inicial,Peso_final,pH,CE,CRA,IMB))
+PEG3<- select(filter(peg, PEG == "PEG3"	),c(T2, rep, PF2,PT2,pH2,CE2,CRA2,IMB2))
 
 {par(mfrow=c(1,4))
   
-  boxplot(data=PEG0,PEG0$Peso_final~Horas_imbibicion, main = "PEG0", ylab = "Peso Turgente (g)",xlab="Horas de imbibici?n",col=c("yellow"))
+  boxplot(data=PEG0,PEG0$PT2~T2, main = "PEG0", ylab = "Turgid weight (g)",xlab="Imbibition hours",col=c("yellow"))
   
-  boxplot(data=PEG1,PEG1$Peso_final~Horas_imbibicion, main = "PEG1",ylab = "Peso Turgente (g)",xlab="Horas de imbibici?n",col=c("green") )
+  boxplot(data=PEG1,PEG1$PT2~T2, main = "PEG1",ylab = "Turgid weight (g)",xlab="Imbibition hours",col=c("green") )
   
-  boxplot(data=PEG2,PEG2$Peso_final~Horas_imbibicion, main = "PEG2",ylab = "Peso Turgente (g)",xlab="Horas de imbibici?n",col=c("red"))
+  boxplot(data=PEG2,PEG2$PT2~T2, main = "PEG2",ylab = "Turgid weight (g)",xlab="Imbibition hours",col=c("red"))
   
-  boxplot(data=PEG3,PEG3$Peso_final~Horas_imbibicion, main = "PEG3",ylab = "Peso Turgente (g)",xlab="Horas de imbibici?n",col=c("blue"))
+  boxplot(data=PEG3,PEG3$PT2~T2, main = "PEG3",ylab = "Turgid weight (g)",xlab="Imbibition hours",col=c("blue"))
   
-  mtext("Boxplot del Peso Turgente de 100 semillas de tarwi seg?n concentraci?n de PEG y horas de imbibici?n",
+  mtext("Boxplot of the Turgid Weight of 100 tarwi seeds according to PEG concentration and hours of imbibition",
         side = 3, line = -1.2, outer = TRUE, font = 2 )
 }
 
 {par(mfrow=c(1,4))
   
-  boxplot(data=PEG0,PEG0$pH~Horas_imbibicion, main = "PEG0", ylab = "pH",xlab="Horas de imbibici?n",col=c("yellow"))
+  boxplot(data=PEG0,PEG0$pH2~T2, main = "PEG0", ylab = "pH",xlab="Imbibition hours",col=c("yellow"))
   
-  boxplot(data=PEG1,PEG1$pH~Horas_imbibicion, main = "PEG1",ylab = "pH",xlab="Horas de imbibici?n",col=c("green") )
+  boxplot(data=PEG1,PEG1$pH2~T2, main = "PEG1",ylab = "pH",xlab="Imbibition hours",col=c("green") )
   
-  boxplot(data=PEG2,PEG2$pH~Horas_imbibicion, main = "PEG2",ylab = "pH",xlab="Horas de imbibici?n",col=c("red"))
+  boxplot(data=PEG2,PEG2$pH2~T2, main = "PEG2",ylab = "pH",xlab="Imbibition hours",col=c("red"))
   
-  boxplot(data=PEG3,PEG3$pH~Horas_imbibicion, main = "PEG3",ylab = "pH",xlab="Horas de imbibici?n",col=c("blue"))
+  boxplot(data=PEG3,PEG3$pH2~T2, main = "PEG3",ylab = "pH",xlab="Imbibition hours",col=c("blue"))
   
-  mtext("Boxplot del pH de la solucion seg?n las horas de imbibici?n de 100 semillas de tarwi y concentraci?n de PEG",
+  mtext("Boxplot of the pH of 100 tarwi seeds according to PEG concentration and hours of imbibition",
         side = 3, line = -1.2, outer = TRUE, font = 2 )
 }
 
 {par(mfrow=c(1,4))
   
-  boxplot(data=PEG0,PEG0$CE~Horas_imbibicion, main = "PEG0", ylab = "CE (mS/cm)",xlab="Horas de imbibici?n",col=c("yellow"))
+  boxplot(data=PEG0,PEG0$CE2~T2, main = "PEG0", ylab = "CE (mS/cm)",xlab="Imbibition hours",col=c("yellow"))
   
-  boxplot(data=PEG1,PEG1$CE~Horas_imbibicion, main = "PEG1",ylab = "CE (mS/cm)",xlab="Horas de imbibici?n",col=c("green") )
+  boxplot(data=PEG1,PEG1$CE2~T2, main = "PEG1",ylab = "CE (mS/cm)",xlab="Imbibition hours",col=c("green") )
   
-  boxplot(data=PEG2,PEG2$CE~Horas_imbibicion, main = "PEG2",ylab = "CE (mS/cm)",xlab="Horas de imbibici?n",col=c("red"))
+  boxplot(data=PEG2,PEG2$CE2~T2, main = "PEG2",ylab = "CE (mS/cm)",xlab="Imbibition hours",col=c("red"))
   
-  boxplot(data=PEG3,PEG3$CE~Horas_imbibicion, main = "PEG3",ylab = "CE (mS/cm)",xlab="Horas de imbibici?n",col=c("blue"))
+  boxplot(data=PEG3,PEG3$CE2~T2, main = "PEG3",ylab = "CE (mS/cm)",xlab="Imbibition hours",col=c("blue"))
   
-  mtext("Boxplot de la CE de la solucion seg?n las horas de imbibici?n de 100 semillas de tarwi y concentraci?n de PEG",
+  mtext("Boxplot of the CE of 100 tarwi seeds according to PEG concentration and hours of imbibition",
         side = 3, line = -1.2, outer = TRUE, font = 2 )
 }
 
 
 {par(mfrow=c(1,4))
   
-  boxplot(data=PEG0,PEG0$CRA~Horas_imbibicion, main = "PEG0", ylab = "CRA (%)",xlab="Horas de imbibici?n",col=c("yellow"))
+  boxplot(data=PEG0,PEG0$CRA2~T2, main = "PEG0", ylab = "CRA (%)",xlab="Imbibition hours",col=c("yellow"))
   
-  boxplot(data=PEG1,PEG1$CRA~Horas_imbibicion, main = "PEG1",ylab = "CRA (%)",xlab="Horas de imbibici?n",col=c("green") )
+  boxplot(data=PEG1,PEG1$CRA2~T2, main = "PEG1",ylab = "CRA (%)",xlab="Imbibition hours",col=c("green") )
   
-  boxplot(data=PEG2,PEG2$CRA~Horas_imbibicion, main = "PEG2",ylab = "CRA (%)",xlab="Horas de imbibici?n",col=c("red"))
+  boxplot(data=PEG2,PEG2$CRA2~T2, main = "PEG2",ylab = "CRA (%)",xlab="Imbibition hours",col=c("red"))
   
-  boxplot(data=PEG3,PEG3$CRA~Horas_imbibicion, main = "PEG3",ylab = "CRA (%)",xlab="Horas de imbibici?n",col=c("blue"))
+  boxplot(data=PEG3,PEG3$CRA2~T2, main = "PEG3",ylab = "CRA (%)",xlab="Imbibition hours",col=c("blue"))
   
-  mtext("Boxplot del Contenido Relativo de Agua (%) de 100 semillas de tarwi seg?n concentracion de PEG y horas de imbibici?n",
+  mtext("Boxplot of the Relative Water Content (%) of 100 tarwi seeds according to PEG concentration and hours of imbibition",
         side = 3, line = -1.2, outer = TRUE, font = 2 )
 }
 
 {par(mfrow=c(1,4))
   
-  boxplot(data=PEG0,PEG0$IMB~Horas_imbibicion, main = "PEG0", ylab = "IMB (%)",xlab="Horas de imbibici?n",col=c("yellow"))
+  boxplot(data=PEG0,PEG0$IMB2~T2, main = "PEG0", ylab = "IMB (%)",xlab="Imbibition hours",col=c("yellow"))
   
-  boxplot(data=PEG1,PEG1$IMB~Horas_imbibicion, main = "PEG1",ylab = "IMB (%)",xlab="Horas de imbibici?n",col=c("green") )
+  boxplot(data=PEG1,PEG1$IMB2~T2, main = "PEG1",ylab = "IMB (%)",xlab="Imbibition hours",col=c("green") )
   
-  boxplot(data=PEG2,PEG2$IMB~Horas_imbibicion, main = "PEG2",ylab = "IMB (%)",xlab="Horas de imbibici?n",col=c("red"))
+  boxplot(data=PEG2,PEG2$IMB2~T2, main = "PEG2",ylab = "IMB (%)",xlab="Imbibition hours",col=c("red"))
   
-  boxplot(data=PEG3,PEG3$IMB~Horas_imbibicion, main = "PEG3",ylab = "IMB (%)",xlab="Horas de imbibici?n",col=c("blue"))
+  boxplot(data=PEG3,PEG3$IMB2~T2, main = "PEG3",ylab = "IMB (%)",xlab="Imbibition hours",col=c("blue"))
   
-  mtext("Boxplot de la tasa de imbibici?n (%) de 100 semillas de tarwi seg?n concentraci?n de PEG y horas de imbibici?n",
+  mtext("Boxplot of the IMB (%) of 100 tarwi seeds according to PEG concentration and hours of imbibition",
         side = 3, line = -1.2, outer = TRUE, font = 2 )
 }
 
