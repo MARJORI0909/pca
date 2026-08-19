@@ -1,37 +1,33 @@
 #Initial analysis: Inferential
 
-## All the variables
-
-peg<- read.delim("clipboard")
-
-attach(peg)
-
-str(peg)
+tarwi2<- read.delim("clipboard")
+attach(tarwi2)
+str(tarwi2)
 
 # library
 
 library(ggplot2)
 
-# grouped boxplot (para cada variable)
+# grouped boxplot (all the variables)
 
-ggplot(peg, aes(x=Horas_imbibicion, y=Peso_final, fill=PEG)) + 
+ggplot(tarwi2, aes(x=Horas_imbibicion, y=Peso_final, fill=PEG)) + 
   geom_boxplot() +   ggtitle("Peso turgente de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
   theme(plot.title = element_text(hjust = 0.5)) + xlab("Horas de imbibici?n") + ylab("Peso turgente (g)")
 
-ggplot(peg, aes(x=Horas_imbibicion, y=pH, fill=PEG)) + 
+ggplot(tarwi2, aes(x=Horas_imbibicion, y=pH, fill=PEG)) + 
   geom_boxplot() +   ggtitle("pH de la soluci?n seg?n las horas de imbibici?n de 100 semillas de tarwi y concentraci?n de PEG") +
   theme(plot.title = element_text(hjust = 0.5)) + xlab("Horas de imbibici?n") + ylab("pH")
 
 
-ggplot(peg, aes(x=Horas_imbibicion, y=CE, fill=PEG)) + 
+ggplot(tarwi2, aes(x=Horas_imbibicion, y=CE, fill=PEG)) + 
   geom_boxplot() +   ggtitle("CE de la soluci?n seg?n las horas de imbibici?n de 100 semillas de tarwi y concentraci?n de PEG") +
   theme(plot.title = element_text(hjust = 0.5))+ xlab("Horas de imbibici?n") + ylab("CE (mS/cm)")
 
-ggplot(peg, aes(x=Horas_imbibicion, y=CRA, fill=PEG)) + 
+ggplot(tarwi2, aes(x=Horas_imbibicion, y=CRA, fill=PEG)) + 
   geom_boxplot() +   ggtitle("Contenido relativo de agua de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
   theme(plot.title = element_text(hjust = 0.5))+ xlab("Horas de imbibici?n") + ylab("CRA (%)")
 
-ggplot(peg, aes(x=Horas_imbibicion, y=IMB, fill=PEG)) + 
+ggplot(tarwi2, aes(x=Horas_imbibicion, y=IMB, fill=PEG)) + 
   geom_boxplot() +   ggtitle("Tasa de imbibici?n de 100 semillas de tarwi seg?n las horas de imbibici?n y concentraci?n de PEG") +
   theme(plot.title = element_text(hjust = 0.5))+ xlab("Horas de imbibici?n") + ylab("IMB (%)")
 
