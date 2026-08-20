@@ -16,61 +16,40 @@ Imbibition Rate (IMB)
 #The following analyses were performed:
 
 1. Analysis of variance (ANOVA)
-
-Two-way ANOVA models were used to evaluate:
-
 Main effect of PEG treatment
 Main effect of imbibition time
 PEG × imbibition time interaction
 
-2. Assumption tests
+2. Coefficient of variation
 
-The assumptions of the ANOVA models were evaluated using:
-
+3. Assumption tests
 Shapiro–Wilk test for normality of residuals
 Levene's test for homogeneity of variances
-Diagnostic plots of model residuals
 
-3. Multiple comparisons
-
-When significant differences were detected, post hoc analyses were performed using methods such as:
+4. Multiple comparisons
 
 Student-Newman-Keuls (SNK) test
 Duncan's multiple range test
 Estimated marginal means (emmeans) with appropriate p-value adjustment
-4. Coefficient of variation
-
-The coefficient of variation (CV) was calculated from the residual mean square of the ANOVA:
-
-[
-CV = \frac{\sqrt{MS_{error}}}{\bar{Y}} \times 100
-]
 
 5. Principal Component Analysis
 
-Principal Component Analysis (PCA) was performed to explore relationships among measured variables and identify patterns in the experimental data.
-
 Repository structure
-├── data/
-│   └── Official Database.xlsx
+├── introduction data/
+│   
 │
 ├── R/
 │   ├── data_preparation.R
 │   ├── ANOVA.R
+│   ├── figures.R
 │   ├── posthoc_tests.R
-│   ├── PCA.R
-│   └── figures.R
-│
-├── figures/
-│   └── ...
+│   └── PCA.R
 │
 └── README.md
-Software and packages
 
-The analyses were performed using R.
+#The analyses were performed using R.
 
-Main R packages used include:
-
+#Main R packages used include:
 car
 agricolae
 emmeans
@@ -79,17 +58,6 @@ FactoMineR
 factoextra
 Reproducibility
 
-To reproduce the analyses:
-
-Clone or download this repository.
-Open the R scripts in the R/ directory.
-Make sure the required packages are installed.
-Set the working directory to the repository location.
-Run the scripts in the indicated order.
-Data availability
-
-The experimental dataset and analysis scripts are provided in this repository for transparency and reproducibility.
-
-Notes
+#The experimental dataset and analysis scripts are provided in this repository for transparency and reproducibility.
 
 Variable names and factor levels should be checked before running the scripts, particularly for PEG treatment and imbibition time.
