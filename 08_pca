@@ -1,0 +1,29 @@
+# Descriptive analysis
+## PCA
+
+tarwi2$PEG <- as.factor(tarwi2$PEG)
+
+### Librery
+
+library(FactoMineR)
+
+library(factoextra)
+
+min(215,6) # maximum number of components #row, columns
+
+tarwi2.pca <- tarwi2[,5:10] #variables
+
+pca.PEG <- PCA(X = tarwi2.pca, scale.unit = TRUE, ncp = 6 , graph = FALSE)
+
+fviz_pca_ind(pca.PEG, label="none", habillage=tarwi2$PEG)
+
+fviz_pca_ind(pca.PEG, geom = "point",
+             habillage=tarwi2$PEG, addEllipses=TRUE,
+             ellipse.level= 0.80)+ theme_minimal()
+
+fviz_pca_var(pca.PEG, col.var  = "Steelblue")
+
+fviz_pca_biplot(pca.PEG, geom = "point",
+                habillage=tarwi2$PEG, addEllipses=TRUE,
+                ellipse.level= 0.80, col.var = "Peru") + theme_minimal()
+
