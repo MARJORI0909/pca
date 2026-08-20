@@ -32,7 +32,7 @@ A1=duncan.test(mode3,"T2",console = TRUE)
 
 mode4=aov(data =PEG3,IMB2~T2)
 shapiro.test(residuals(mode4)) 
-bartlett.test(data =PEG3,IMB2~T2
+bartlett.test(data =PEG3,IMB2~T2)
 summary(mode4)
 cv.model(mode4)
 A1=duncan.test(mode4,"T2",console = TRUE)
